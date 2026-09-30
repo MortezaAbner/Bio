@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>مرتضی آبنر | Morteza Abner</title>
 
-  <!-- فونت وزیرمتن برای نمایش هماهنگ و چشم‌نواز در گوشی‌های هوشمند -->
+  <!-- فونت استاندارد وزیرمتن -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- کتابخانه آیکون‌های استاندارد -->
+  <!-- آیکون‌های FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
@@ -18,19 +18,18 @@
       --primary-sky: #38bdf8;
       --primary-neon: #39ff14;
       --sky-glow: rgba(56, 189, 248, 0.35);
-      --neon-glow: rgba(57, 255, 20, 0.45);
+      --neon-glow: rgba(57, 255, 20, 0.4);
       --font-main: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* پالت تم تیره (Dark Mode) */
+    /* حالت شب */
     body[data-theme="dark"] {
-      --bg-color: #030712;
-      --bg-gradient: radial-gradient(circle at 15% 15%, #031326 0%, #060e1e 50%, #020617 100%);
+      --bg-gradient: radial-gradient(circle at 10% 20%, #031326 0%, #060e1e 45%, #020617 100%);
       --glass-bg: rgba(15, 23, 42, 0.65);
       --glass-border: rgba(56, 189, 248, 0.22);
-      --glass-hover-border: rgba(57, 255, 20, 0.65);
+      --glass-hover-border: rgba(57, 255, 20, 0.6);
       --card-bg: rgba(30, 41, 59, 0.45);
-      --card-hover: rgba(30, 41, 59, 0.78);
+      --card-hover: rgba(30, 41, 59, 0.75);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --badge-bg: rgba(56, 189, 248, 0.15);
@@ -38,11 +37,10 @@
       --orb-opacity: 0.25;
     }
 
-    /* پالت تم روشن (Light Mode) */
+    /* حالت روز */
     body[data-theme="light"] {
-      --bg-color: #f8fafc;
       --bg-gradient: radial-gradient(circle at 15% 15%, #e0f2fe 0%, #f0fdf4 50%, #f8fafc 100%);
-      --glass-bg: rgba(255, 255, 255, 0.78);
+      --glass-bg: rgba(255, 255, 255, 0.75);
       --glass-border: rgba(56, 189, 248, 0.35);
       --glass-hover-border: rgba(34, 197, 94, 0.65);
       --card-bg: rgba(255, 255, 255, 0.85);
@@ -76,7 +74,7 @@
       transition: background 0.35s ease, color 0.35s ease;
     }
 
-    /* اورب‌های نورانی درخشان در پس‌زمینه */
+    /* هاله‌های نوری پس‌زمینه */
     .ambient-orb {
       position: fixed;
       border-radius: 50%;
@@ -142,7 +140,7 @@
       border-color: var(--primary-neon);
     }
 
-    /* کادر پروفایل */
+    /* کارت پروفایل */
     .profile-card {
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
@@ -204,7 +202,7 @@
       line-height: 1.55;
     }
 
-    /* فهرست پیوندها */
+    /* فهرست دکمه‌ها */
     .links-list {
       display: flex;
       flex-direction: column;
@@ -250,7 +248,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    /* رنگ‌های اختصاصی آیکون‌ها */
+    /* رنگ‌بندی آیکون‌ها */
     .icon-website { background: linear-gradient(135deg, #0284c7, #38bdf8); }
     .icon-instagram { background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); }
     .icon-youtube { background: linear-gradient(135deg, #dc2626, #ef4444); }
@@ -275,8 +273,6 @@
       color: var(--text-muted);
       margin-top: 3px;
       font-weight: 400;
-      direction: ltr;
-      text-align: right;
     }
 
     .link-left {
@@ -305,7 +301,6 @@
       margin-top: 6px;
     }
 
-    /* اعلان Toast */
     .toast {
       position: fixed;
       bottom: 20px;
@@ -337,7 +332,7 @@
 
   <div class="container">
     
-    <!-- نوار بالا: دکمه تم شب/روز و اشتراک‌گذاری -->
+    <!-- هدر: دکمه تم و اشتراک‌گذاری -->
     <header class="top-bar">
       <button class="icon-btn" id="themeBtn" aria-label="تغییر تم">
         <i class="fa-solid fa-moon" id="themeIcon"></i>
@@ -347,7 +342,7 @@
       </button>
     </header>
 
-    <!-- کادر مشخصات پروفایل -->
+    <!-- کارت اطلاعات کاربر -->
     <section class="profile-card">
       <div class="avatar-wrapper">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=350&q=80" alt="مرتضی آبنر" class="avatar-img" />
@@ -357,18 +352,18 @@
       <p class="profile-bio">درگاه رسمی ارتباطی و دسترسی به تمامی شبکه‌ها و صفحات من</p>
     </section>
 
-    <!-- لیست دکمه‌ها با ترتیب و متون دقیق نمونه ارسالی -->
+    <!-- لیست دکمه‌ها با تایتل و موضوعات دقیق -->
     <main class="links-list">
 
       <!-- ۱. وب‌سایت رسمی -->
-      <div class="link-card" onclick="showToast('وب‌سایت رسمی به زودی فعال خواهد شد.')">
+      <div class="link-card" onclick="showToast('وب‌سایت به زودی فعال می‌شود.')">
         <div class="link-right">
           <div class="icon-box icon-website">
             <i class="fa-solid fa-globe"></i>
           </div>
           <div class="link-info">
             <span class="link-title">وب‌سایت رسمی</span>
-            <span class="link-desc" style="direction: rtl;">پرتال و پایگاه اختصاصی</span>
+            <span class="link-desc">پرتال و پایگاه اختصاصی</span>
           </div>
         </div>
         <div class="link-left">
@@ -385,7 +380,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">اینستاگرام</span>
-            <span class="link-desc">@morteza.abner</span>
+            <span class="link-desc">روزمرگی‌ها، ریلزها و استوری‌ها</span>
           </div>
         </div>
         <div class="link-left">
@@ -401,7 +396,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">یوتیوب</span>
-            <span class="link-desc">@mortezaabner</span>
+            <span class="link-desc">ویدیوها، آموزش‌ها و مستندها</span>
           </div>
         </div>
         <div class="link-left">
@@ -417,7 +412,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">تلگرام</span>
-            <span class="link-desc" style="direction: rtl;">کانال رسمی مرتضی آبنر</span>
+            <span class="link-desc">کانال رسمی مرتضی آبنر</span>
           </div>
         </div>
         <div class="link-left">
@@ -433,7 +428,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">تردز (Threads)</span>
-            <span class="link-desc">@morteza.abner</span>
+            <span class="link-desc">یادداشت‌ها، گفتگوها و دیدگاه‌ها</span>
           </div>
         </div>
         <div class="link-left">
@@ -449,7 +444,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">ایکس (توییتر)</span>
-            <span class="link-desc">@MortezaAbner</span>
+            <span class="link-desc">توییت‌ها، اخبار و افکار کوتاه</span>
           </div>
         </div>
         <div class="link-left">
@@ -465,7 +460,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">پینترست</span>
-            <span class="link-desc" style="direction: rtl;">پین‌ها و بردهای خلاقانه</span>
+            <span class="link-desc">پین‌ها و بردهای خلاقانه</span>
           </div>
         </div>
         <div class="link-left">
@@ -481,7 +476,7 @@
           </div>
           <div class="link-info">
             <span class="link-title">گیت‌هاب</span>
-            <span class="link-desc">MortezaAbner</span>
+            <span class="link-desc">مخازن پروژه‌ها و کدهای منبع</span>
           </div>
         </div>
         <div class="link-left">
@@ -497,14 +492,14 @@
 
   </div>
 
-  <!-- کادر اعلان Toast -->
+  <!-- پیام اعلان کوتاه Toast -->
   <div class="toast" id="toast">
     <i class="fa-solid fa-circle-check" style="color: var(--primary-neon);"></i>
     <span id="toastMsg"></span>
   </div>
 
   <script>
-    // تنظیم تم بر اساس ساعت دستگاه (ساعت ۱۸ تا ۶ دارک، ۶ تا ۱۸ لایت)
+    // تنظیم تم بر اساس ساعت دستگاه
     function setupTheme() {
       const hour = new Date().getHours();
       const isNight = hour >= 18 || hour < 6;
@@ -524,7 +519,7 @@
       showToast(current === 'dark' ? 'حالت روز فعال شد' : 'حالت شب فعال شد');
     });
 
-    // دیپ لینک مستقیم برای گوشی هوشمند
+    // ارجاع مستقیم به اپلیکیشن در موبایل
     function handleLink(e, appUri, webUri) {
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       if (!isMobile) return;
@@ -540,13 +535,13 @@
       }, 1200);
     }
 
-    // دکمه اشتراک‌گذاری صفحه
+    // اشتراک‌گذاری صفحه
     document.getElementById('shareBtn').addEventListener('click', async () => {
       const url = window.location.href;
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'پیوندهای رسمی مرتضی آبنر',
+            title: 'پیوندهای مرتضی آبنر',
             url: url
           });
         } catch (err) {
@@ -563,7 +558,7 @@
           showToast('لینک صفحه کپی شد');
         });
       } else {
-        showToast('آدرس: ' + text);
+        showToast('لینک: ' + text);
       }
     }
 
